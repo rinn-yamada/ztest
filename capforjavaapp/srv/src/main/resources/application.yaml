@@ -1,0 +1,31 @@
+---
+spring:
+  config.activate.on-profile: default
+  datasource:
+    url: "jdbc:sqlite:file::memory:?cache=shared"
+    driver-class-name: org.sqlite.JDBC
+    hikari:
+      maximum-pool-size: 1
+  sql:
+    init:
+      mode: always
+cds:
+  application.services:
+    - name: "OnPreService"
+      model: "Entity1_SRV"
+  remote.services:
+    - name: "Entity1_SRV"
+      destination:
+        name: "destination1"
+        type: "odata-v2"
+        suffix: "/sap/opu/odata/sap"
+---
+spring:
+  config.activate.on-profile: cloud
+cds:
+  remote.services:
+    - name: "Entity1_SRV"
+      destination:
+        name: "destination1"
+        type: "odata-v2"
+        suffix: "/sap/opu/odata/sap"

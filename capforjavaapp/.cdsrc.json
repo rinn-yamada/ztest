@@ -1,0 +1,16 @@
+{
+    "build": {
+        "target": "."
+    },
+    "requires": {
+        "db": {
+            "kind": "sql"
+        }
+    },
+    "hana": {
+        "deploy-format": "hdbtable"
+    },
+    "odata": {
+         "version": "v2"
+     }
+}
